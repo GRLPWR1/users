@@ -1,0 +1,23 @@
+import React from 'react';
+
+function Footer(props) {
+    return (
+        <footer className="page-footer">
+            <div className="container">
+                <div className="row">
+                    <div className="col l6 s12">
+                        <h5 className="white-text">Random Users</h5>
+                    </div>
+                </div>
+            </div>
+            <div className="footer-copyright">
+                <div className="container">
+                    © 2023 Copyright Frontend001
+                    <a className="grey-text text-lighten-4 right" href="https://github.com/GRLPWR1/users.git">git repo</a>
+                </div>
+            </div>
+        </footer>
+    );
+}
+
+export default Footer;
