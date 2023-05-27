@@ -25,9 +25,7 @@ function App() {
   }, [btnClicked])
   console.log('users: ' + users)
   const eventHandler = () => {
-    return setBtnClicked = () => {
-      return !btnClicked;
-    }
+    setBtnClicked((btnClicked) => !btnClicked)
   }
 
   return (
