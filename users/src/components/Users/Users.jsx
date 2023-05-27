@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import icon from '../Users/user.png'
 
-function Users(id) {
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(data => data.json())
-            .then(res => setUsers(prev => [...prev, res]))
-    }, [])
+function Users({ id, users }) {
+
     return (
         <div>
             <ul className="collection">
-                {users.map((user) => <li className="collection-item avatar" key={id}>
+                {users && users.map((user) => <li className="collection-item avatar" key={id}>
                     <img src={icon} alt="" className="circle" />
                     <p><i>Full name: </i>{user.name}</p>
                     <p><i>Nickname: </i>{user.username}</p>
