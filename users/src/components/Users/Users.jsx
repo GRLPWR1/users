@@ -1,12 +1,12 @@
 import React from 'react';
 import icon from '../Users/user.png'
 
-function Users({ id, users }) {
+function Users({ users }) {
 
     return (
         <div>
             <ul className="collection">
-                {users && users.map((user) => <li className="collection-item avatar" key={id}>
+                {users && users.map((user) => <li className="collection-item avatar" key={user.id}>
                     <img src={icon} alt="" className="circle" />
                     <p><i>Full name: </i>{user.name}</p>
                     <p><i>Nickname: </i>{user.username}</p>

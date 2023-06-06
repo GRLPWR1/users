@@ -6,14 +6,13 @@ import { v4 as uuidv4 } from 'uuid';
 uuidv4();
 
 function App() {
-  let id = uuidv4();
 
   const [users, setUsers] = useState([]);
-  const [btnClicked, setBtnClicked] = useState(false);
 
-  useEffect(() => {
+  const eventHandler = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(data => data.json())
+      .then(users => users.map(user => ({ ...user, id: uuidv4() })))
       .then(res => {
         console.log(res);
         setUsers(prev => [...prev, ...res])
@@ -22,19 +21,16 @@ function App() {
         console.warn(err);
         alert("Error! Couldn't fetch users");
       })
-  }, [btnClicked])
-  console.log('users: ' + users)
-  const eventHandler = () => {
-    setBtnClicked((btnClicked) => !btnClicked)
   }
 
   return (
     <div className="App">
       <Header
-        eventHandler={eventHandler} />
+        eventHandler={eventHandler}
+      />
       <Users
         users={users}
-        id={id} />
+      />
       <Footer />
     </div>
   );
